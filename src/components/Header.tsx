@@ -55,8 +55,15 @@ export default function Header() {
         borderBottomWidth={1}
         borderColor={"gray.200"}    
     >
-        <Text fontSize={"3xl"} fontWeight={"bold"}>
-            체험단 동반자
+        <Text 
+            fontSize={{
+               base: "2xl",    // 모바일
+               md: "3xl"       // 768px 이상
+           }} 
+           fontWeight={"bold"} 
+           color={"cyan.500"}
+        >
+            리뷰 캐처
         </Text>
 
         <HStack gap={2}>

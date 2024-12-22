@@ -41,14 +41,14 @@ export default function TotalState({ tasksTotal, tasks }: TotalStateProps) {
                 templateColumns={{ base: "1fr", lg: "630px 1fr" }}
             >
                 {/* 왼쪽 섹션: 주요 통계 */}
-                <SimpleGrid columns={{ base: 1, sm: 2 }} gap={4}>
+                <SimpleGrid columns={{ base: 1, lg: 2 }} gap={4}>
                     <Stat 
                         borderWidth={1} 
                         borderRadius="lg" 
                         p={5} 
                         border="2px solid" 
                         borderColor="gray.200" 
-                        w={{ base: "100%", sm: "320px" }}
+                        w={{ base: "100%", lg: "320px" }}
                     >
                         <HStack justify="center" align="center" gap={5}>
                             <VStack align="center" gap={5} >
@@ -82,8 +82,8 @@ export default function TotalState({ tasksTotal, tasks }: TotalStateProps) {
                         borderColor="gray.200" 
                         borderRadius="lg" 
                         p={5} 
-                        w={{ base: "100%", sm: "300px" }}
-                        ml={5}
+                        w={{ base: "100%", lg: "300px" }}
+                        ml={{base: 0, lg: 5}}
                     >
                         <HStack justify="center" align="center" gap={5}>
                             <VStack align="center" gap={5}>

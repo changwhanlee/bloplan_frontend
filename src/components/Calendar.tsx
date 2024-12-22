@@ -376,8 +376,8 @@ export default function Calendar({ tasks, isDemo = false }: CalendarProps) {
                             alignItems="center"
                             height="100%"
                             >
-                            <Text fontWeight="bold" fontSize="2xl">이번 달 달성 (완료 기준) : </Text>
-                            <Text color="blue.600" fontSize="2xl" fontWeight="bold" ml={2}>
+                            <Text fontWeight="bold" fontSize={{base: "xl", md: "2xl"}}>이번 달 달성 (완료 기준) : </Text>
+                            <Text color="blue.600" fontSize={{base: "xl", md: "2xl"}} fontWeight="bold" ml={2}>
                                 {tasks.filter(
                                     task => {
                                         const taskEnd = new Date(task.due_date);
@@ -486,7 +486,7 @@ export default function Calendar({ tasks, isDemo = false }: CalendarProps) {
                                     {date.getDate() === new Date().getDate() && 
                                             date.getMonth() === new Date().getMonth() && 
                                             date.getFullYear() === new Date().getFullYear() && (
-                                                <Text as="span" ml={3} color="red.500" fontSize="sm" fontWeight="bold">
+                                                <Text as="span" ml={3} color="red.500" fontSize={{base: "xs", md: "sm"}} fontWeight="bold">
                                                     오늘
                                                 </Text>
                                     )}
@@ -518,7 +518,7 @@ export default function Calendar({ tasks, isDemo = false }: CalendarProps) {
                                                             border={getTaskColor(task).border}
                                                             borderColor={getTaskColor(task).borderColor}
                                                             borderRadius="sm"
-                                                            fontSize="sm"
+                                                            fontSize={{base: "xs", md: "sm"}}
                                                             onClick={() => handleTaskClick(taskId)}
                                                             cursor="pointer"
                                                             style={{
@@ -526,8 +526,19 @@ export default function Calendar({ tasks, isDemo = false }: CalendarProps) {
                                                                 width: '90%',
                                                                 margin: '0 auto',
                                                                 transition: 'transform 0.2s',
+                                                                whiteSpace: 'nowrap',
+                                                                overflow: 'auto',
+                                                                textOverflow: 'initial',
+                                                                WebkitOverflowScrolling: 'touch',
+                                                                msOverflowStyle: 'none',
+                                                                scrollbarWidth: 'none',
                                                             }}
                                                             _hover={getTaskColor(task)._hover}
+                                                            sx={{
+                                                                '&::-webkit-scrollbar': {
+                                                                    display: 'none',
+                                                                },
+                                                            }}
                                                         >
                                                             {task.client}
                                                         </Box>
@@ -538,7 +549,7 @@ export default function Calendar({ tasks, isDemo = false }: CalendarProps) {
                                                             p={1}
                                                             color="blue.500"
                                                             borderRadius="sm"
-                                                            fontSize="xs"
+                                                            fontSize={{base: "xs", md: "sm"}}
                                                             textAlign="center"
                                                             cursor="pointer"
                                                             onClick={(e) => {
